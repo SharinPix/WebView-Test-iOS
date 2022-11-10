@@ -3,11 +3,13 @@ import WebKit
 
 class WebViewController: NSObject, WKScriptMessageHandler, WKNavigationDelegate {
     var name: String
-    var webViewHeightController: WebViewHeightController
+    var webViewSizeController: WebViewSizeController
     
     init(name: String) {
         self.name = name
-        self.webViewHeightController = WebViewHeightController.getInstance()
+        self.webViewSizeController = WebViewSizeController.getInstance()
+        webViewSizeController.setSize(name: name, newHeight: 300, newWidth: UIScreen.main.bounds.size.width / 2)
+        webViewSizeController.setFullScreen(name: name, fullscreen: false)
     }
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
@@ -16,12 +18,14 @@ class WebViewController: NSObject, WKScriptMessageHandler, WKNavigationDelegate 
         print(dict ?? "SharinPix null");
         guard let string = dict?["name"] as? String else { return };
         print("SharinPix: " + string);
-        if (string == "upload-done") {
-            webViewHeightController.setHeight(name: name, newHeight: 800)
+        if (string == "image-new") {
+            webViewSizeController.setSize(name: name, newHeight: UIScreen.main.bounds.size.height, newWidth: UIScreen.main.bounds.size.width)
+            webViewSizeController.setFullScreen(name: name, fullscreen: true)
         } else if (string == "image-annotated") {
-            webViewHeightController.setHeight(name: name, newHeight: 300)
+            webViewSizeController.setSize(name: name, newHeight: 300, newWidth: UIScreen.main.bounds.size.width / 2)
+            webViewSizeController.setFullScreen(name: name, fullscreen: false)
         }
-//        showAlert(message: string)
+        showAlert(message: string)
     }
     
     func showAlert(message: String) {
