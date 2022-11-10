@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1878178B291D6FB500E3B940 /* WebViewSizeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1878178A291D6FB500E3B940 /* WebViewSizeController.swift */; };
 		18D49A9F28F452FF00996942 /* WebView_TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D49A9E28F452FF00996942 /* WebView_TestApp.swift */; };
 		18D49AA128F452FF00996942 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D49AA028F452FF00996942 /* ContentView.swift */; };
 		18D49AA328F452FF00996942 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D49AA228F452FF00996942 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1878178A291D6FB500E3B940 /* WebViewSizeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewSizeController.swift; sourceTree = "<group>"; };
 		18D49A9B28F452FF00996942 /* WebView Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WebView Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D49A9E28F452FF00996942 /* WebView_TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView_TestApp.swift; sourceTree = "<group>"; };
 		18D49AA028F452FF00996942 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				18D49AA528F452FF00996942 /* Preview Content */,
 				18D49AC928F454F700996942 /* WebView.swift */,
 				18D49ACB28F46B0B00996942 /* WebViewController.swift */,
+				1878178A291D6FB500E3B940 /* WebViewSizeController.swift */,
 			);
 			path = "WebView Test";
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1878178B291D6FB500E3B940 /* WebViewSizeController.swift in Sources */,
 				18D49ACA28F454F700996942 /* WebView.swift in Sources */,
 				18D49AA128F452FF00996942 /* ContentView.swift in Sources */,
 				18D49A9F28F452FF00996942 /* WebView_TestApp.swift in Sources */,
