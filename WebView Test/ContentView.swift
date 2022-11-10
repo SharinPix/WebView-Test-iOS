@@ -41,7 +41,7 @@ struct ContentView: View {
             )
         } else {
             if (webViewSizeController.webView1FullScreen) {
-                _webview1.frame(width: $webViewSizeController.webViewWidth1.wrappedValue, height: $webViewSizeController.webViewWidth1.wrappedValue)
+                _webview1.frame(width: $webViewSizeController.webViewWidth1.wrappedValue, height: $webViewSizeController.webViewHeight1.wrappedValue)
             } else if (webViewSizeController.webView2FullScreen) {
                 _webview2.frame(width: $webViewSizeController.webViewWidth2.wrappedValue, height: $webViewSizeController.webViewHeight2.wrappedValue)
             }
