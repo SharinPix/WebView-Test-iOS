@@ -14,6 +14,8 @@
 		18D49AB128F4530000996942 /* WebView_TestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D49AB028F4530000996942 /* WebView_TestTests.swift */; };
 		18D49ABB28F4530000996942 /* WebView_TestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D49ABA28F4530000996942 /* WebView_TestUITests.swift */; };
 		18D49ABD28F4530000996942 /* WebView_TestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D49ABC28F4530000996942 /* WebView_TestUITestsLaunchTests.swift */; };
+		18D49ACA28F454F700996942 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D49AC928F454F700996942 /* WebView.swift */; };
+		18D49ACC28F46B0B00996942 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D49ACB28F46B0B00996942 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,9 @@
 		18D49AB628F4530000996942 /* WebView TestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WebView TestUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D49ABA28F4530000996942 /* WebView_TestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView_TestUITests.swift; sourceTree = "<group>"; };
 		18D49ABC28F4530000996942 /* WebView_TestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView_TestUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		18D49AC928F454F700996942 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		18D49ACB28F46B0B00996942 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		18D49ACD28F5599400996942 /* WebView-Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "WebView-Test-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,11 +100,14 @@
 		18D49A9D28F452FF00996942 /* WebView Test */ = {
 			isa = PBXGroup;
 			children = (
+				18D49ACD28F5599400996942 /* WebView-Test-Info.plist */,
 				18D49A9E28F452FF00996942 /* WebView_TestApp.swift */,
 				18D49AA028F452FF00996942 /* ContentView.swift */,
 				18D49AA228F452FF00996942 /* Assets.xcassets */,
 				18D49AA428F452FF00996942 /* WebView_Test.entitlements */,
 				18D49AA528F452FF00996942 /* Preview Content */,
+				18D49AC928F454F700996942 /* WebView.swift */,
+				18D49ACB28F46B0B00996942 /* WebViewController.swift */,
 			);
 			path = "WebView Test";
 			sourceTree = "<group>";
@@ -259,8 +267,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18D49ACA28F454F700996942 /* WebView.swift in Sources */,
 				18D49AA128F452FF00996942 /* ContentView.swift in Sources */,
 				18D49A9F28F452FF00996942 /* WebView_TestApp.swift in Sources */,
+				18D49ACC28F46B0B00996942 /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,8 +425,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WebView Test/Preview Content\"";
+				DEVELOPMENT_TEAM = 62P46HUTJ9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WebView-Test-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This App requires camera access to let you take the pictures that you would like to upload.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -451,8 +464,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WebView Test/Preview Content\"";
+				DEVELOPMENT_TEAM = 62P46HUTJ9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WebView-Test-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This App requires camera access to let you take the pictures that you would like to upload.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
