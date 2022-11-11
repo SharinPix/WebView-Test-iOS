@@ -8,8 +8,6 @@ class WebViewController: NSObject, WKScriptMessageHandler, WKNavigationDelegate 
     init(name: String) {
         self.name = name
         self.webViewSizeController = WebViewSizeController.getInstance()
-        webViewSizeController.setSize(name: name, newHeight: 300, newWidth: UIScreen.main.bounds.size.width / 2)
-        webViewSizeController.setFullScreen(name: name, fullscreen: false)
     }
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
@@ -25,7 +23,7 @@ class WebViewController: NSObject, WKScriptMessageHandler, WKNavigationDelegate 
             webViewSizeController.setSize(name: name, newHeight: 300, newWidth: UIScreen.main.bounds.size.width / 2)
             webViewSizeController.setFullScreen(name: name, fullscreen: false)
         }
-        showAlert(message: string)
+//        showAlert(message: string)
     }
     
     func showAlert(message: String) {
@@ -35,8 +33,6 @@ class WebViewController: NSObject, WKScriptMessageHandler, WKNavigationDelegate 
                 message: message,
                 preferredStyle: .alert
             )
-            
-            // Add a confirmation action “OK”
             let okAction = UIAlertAction(
                 title: "OK",
                 style: .default,

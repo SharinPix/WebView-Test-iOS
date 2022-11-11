@@ -9,6 +9,9 @@ import SwiftUI
 import WebKit
  
 struct WebView: UIViewRepresentable {
+    static var webView1: WKWebView?
+    static var webView2: WKWebView?
+    
     var name: String
     var url: URL
     var webViewController: WebViewController
@@ -22,13 +25,34 @@ struct WebView: UIViewRepresentable {
     }
  
     func makeUIView(context: Context) -> WKWebView {
-        let webView = WKWebView()
-        webView.configuration.userContentController.add(webViewController, name: "sharinpixOnEvent")
-        webView.scrollView.isScrollEnabled = false
-        let request = URLRequest(url: url)
-        webView.load(request)
-        return webView
+        if (name == "WebView1" && WebView.webView1 == nil) {
+            print("Creating WebView 1")
+            webViewSizeController.setSize(name: name, newHeight: 300, newWidth: UIScreen.main.bounds.size.width / 2)
+            webViewSizeController.setFullScreen(name: name, fullscreen: false)
+            WebView.webView1 = WKWebView()
+            WebView.webView1!.scrollView.isScrollEnabled = false
+            WebView.webView1!.clipsToBounds = true
+            WebView.webView1!.configuration.userContentController.add(webViewController, name: "sharinpixOnEvent")
+            let request = URLRequest(url: url)
+            WebView.webView1!.load(request)
+        } else if (name == "WebView2" && WebView.webView2 == nil) {
+            print("Creating WebView 2")
+            webViewSizeController.setSize(name: name, newHeight: 300, newWidth: UIScreen.main.bounds.size.width / 2)
+            webViewSizeController.setFullScreen(name: name, fullscreen: false)
+            WebView.webView2 = WKWebView()
+            WebView.webView2!.scrollView.isScrollEnabled = false
+            WebView.webView2!.clipsToBounds = true
+            WebView.webView2!.configuration.userContentController.add(webViewController, name: "sharinpixOnEvent")
+            let request = URLRequest(url: url)
+            WebView.webView2!.load(request)
+        }
+        if (name == "WebView1") {
+            return WebView.webView1!
+        }
+        return WebView.webView2!
     }
  
-    func updateUIView(_ webView: WKWebView, context: Context) {}
+    func updateUIView(_ webView: WKWebView, context: Context) {
+        print("WebView Updated")
+    }
 }
