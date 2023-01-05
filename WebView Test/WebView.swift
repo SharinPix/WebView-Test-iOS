@@ -17,6 +17,11 @@ struct WebView: UIViewRepresentable {
     var webViewController: WebViewController
     var webViewSizeController: WebViewSizeController
     
+    let source: String = "var meta = document.createElement('meta');" +
+            "meta.name = 'viewport';" +
+            "meta.content = 'width=device-width, initial-scale=1.0, maximum- scale=1.0, user-scalable=no';" +
+            "var head = document.getElementsByTagName('head')[0];" + "head.appendChild(meta);"
+    
     init(name: String, url: URL, webViewController: WebViewController) {
         self.name = name
         self.url = url
@@ -31,8 +36,12 @@ struct WebView: UIViewRepresentable {
             webViewSizeController.setFullScreen(name: name, fullscreen: false)
             WebView.webView1 = WKWebView()
             WebView.webView1!.scrollView.isScrollEnabled = false
-            WebView.webView1!.clipsToBounds = true
+            WebView.webView1!.isOpaque = false;
+            WebView.webView1!.backgroundColor = UIColor.clear;
+            WebView.webView1!.scrollView.setContentOffset(CGPointZero, animated: false)
+            WebView.webView1!.scrollView.contentInsetAdjustmentBehavior = .never
             WebView.webView1!.configuration.userContentController.add(webViewController, name: "sharinpixOnEvent")
+            WebView.webView1!.configuration.userContentController.addUserScript(WKUserScript(source: source, injectionTime: .atDocumentEnd, forMainFrameOnly: false))
             let request = URLRequest(url: url)
             WebView.webView1!.load(request)
         } else if (name == "WebView2" && WebView.webView2 == nil) {
@@ -41,8 +50,12 @@ struct WebView: UIViewRepresentable {
             webViewSizeController.setFullScreen(name: name, fullscreen: false)
             WebView.webView2 = WKWebView()
             WebView.webView2!.scrollView.isScrollEnabled = false
-            WebView.webView2!.clipsToBounds = true
+            WebView.webView2!.isOpaque = false;
+            WebView.webView2!.backgroundColor = UIColor.clear;
+            WebView.webView2!.scrollView.setContentOffset(CGPointZero, animated: false)
+            WebView.webView2!.scrollView.contentInsetAdjustmentBehavior = .never
             WebView.webView2!.configuration.userContentController.add(webViewController, name: "sharinpixOnEvent")
+            WebView.webView2!.configuration.userContentController.addUserScript(WKUserScript(source: source, injectionTime: .atDocumentEnd, forMainFrameOnly: false))
             let request = URLRequest(url: url)
             WebView.webView2!.load(request)
         }

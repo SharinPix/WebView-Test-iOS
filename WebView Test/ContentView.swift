@@ -46,10 +46,15 @@ struct WebView1: View {
     var body: some View {
         WebView(
             name: "WebView1",
-            url: URL(string: "https://app.sharinpix.com/?token=eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjgwODA5MzcsImlzcyI6ImQ2NWZiOWRjLWUwOTItNDg0OC04MWRhLWFiNjJiMzQ4MTA3NCIsInBhdGgiOiIvc2luZ2xlLWltYWdlIiwidGFnIjoicmVjZWlwdCIsIklkIjoiNTAwMjQwMDAwMDFGbUFOQUEwIiwiYWJpbGl0aWVzIjp7IjUwMDI0MDAwMDAxRm1BTkFBMCI6eyJBY2Nlc3MiOnsic2VlIjp0cnVlLCJpbWFnZV91cGxvYWQiOnRydWUsImltYWdlX2Nyb3AiOnRydWUsImltYWdlX2xpc3QiOnRydWUsImltYWdlX2Fubm90YXRlIjp0cnVlfX19LCJ1cGxvYWRfc291cmNlIjoiY2FtZXJhIiwidXBsb2FkX2FjY2VwdCI6ImltYWdlLyoifQ.aIYoqbJmGtiutRECTHyebshzMr07A7eXRpkPPUU9V_E")!,
+            url: URL(string: "https://sharinpix-pr-send-nativ-amzucj.herokuapp.com/?token=eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NzA5NDc4MTYsImlhdCI6MTY3MDkzMzQxNiwiaXNzIjoiYjAzMDU0NDAtNjllZS00OTM0LThhNTAtMjI1MGNmYzNiYjdmIiwicGF0aCI6Ii9zaW5nbGUtaW1hZ2UiLCJ0YWciOiJzZWNvbmRhcnkiLCJJZCI6InBsb3BwbG9wIiwiYWJpbGl0aWVzIjp7InBsb3BwbG9wIjp7IkFjY2VzcyI6eyJzZWUiOnRydWUsImltYWdlX3VwbG9hZCI6dHJ1ZSwiaW1hZ2VfYW5ub3RhdGUiOnRydWUsImltYWdlX2RlbGV0ZSI6dHJ1ZSwiaW1hZ2VfbGlzdCI6dHJ1ZX19fX0.2aWeURNn_VvNAyjXNUyGrR7fA8iG2mDlKAMSyYKDJSw")!,
             webViewController: WebViewController(name: "WebView1")
         )
         .frame(width: $webViewSizeController.webViewWidth1.wrappedValue, height: $webViewSizeController.webViewHeight1.wrappedValue)
+        .overlay(
+            Text("Front Image")
+                .foregroundStyle(.white.gradient)
+                .opacity($webViewSizeController.webView1Opacity.wrappedValue == 1.0 ? 0.0 : 1.0)
+        )
     }
 }
 
@@ -63,6 +68,11 @@ struct WebView2: View {
             webViewController: WebViewController(name: "WebView2")
         )
         .frame(width: $webViewSizeController.webViewWidth2.wrappedValue, height: $webViewSizeController.webViewHeight2.wrappedValue)
+        .overlay(
+            Text("Back Image")
+                .foregroundStyle(.white.gradient)
+                .opacity($webViewSizeController.webView2Opacity.wrappedValue == 1.0 ? 0.0 : 1.0)
+        )
     }
 }
 

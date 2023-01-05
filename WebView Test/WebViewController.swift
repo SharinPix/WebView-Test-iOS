@@ -14,16 +14,38 @@ class WebViewController: NSObject, WKScriptMessageHandler, WKNavigationDelegate 
         print(message.body)
         let dict = message.body as? NSDictionary;
         print(dict ?? "SharinPix null");
-        guard let string = dict?["name"] as? String else { return };
-        print("SharinPix: " + string);
-        if (string == "image-new") {
+        guard let state = dict?["name"] as? String else { return };
+        print("SharinPix: " + state);
+        if (state == "sharinpix-ready") {
+            webViewSizeController.setOpacity(name: name, opacity: 0.0)
+        } else if (state == "upload-started") {
             webViewSizeController.setSize(name: name, newHeight: UIScreen.main.bounds.size.height, newWidth: UIScreen.main.bounds.size.width)
             webViewSizeController.setFullScreen(name: name, fullscreen: true)
-        } else if (string == "image-annotated") {
+            webViewSizeController.setOpacity(name: name, opacity: 1.0)
+        } else if (state == "image-annotated") {
             webViewSizeController.setSize(name: name, newHeight: 300, newWidth: UIScreen.main.bounds.size.width / 2)
             webViewSizeController.setFullScreen(name: name, fullscreen: false)
+            webViewSizeController.setOpacity(name: name, opacity: 1.0)
+            sendStateToWebApp(state: state)
         }
 //        showAlert(message: string)
+    }
+    
+    func sendStateToWebApp(state: String) {
+        let response: [String: Any] = [
+            "name": "log-message",
+            "payload": [
+                "state": state,
+                "annotated": true
+            ],
+        ]
+        let jsonData = try? JSONSerialization.data(withJSONObject:response)
+        let jsonString = String(data: jsonData!, encoding: .utf8)
+        if (self.name.elementsEqual("WebView1")) {
+            WebView.webView1?.evaluateJavaScript("window.postMessage(" + jsonString! + ")")
+        } else if (self.name.elementsEqual("WebView2")) {
+            WebView.webView2?.evaluateJavaScript("window.postMessage(" + jsonString! + ")")
+        }
     }
     
     func showAlert(message: String) {
