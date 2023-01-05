@@ -38,7 +38,6 @@ struct WebView: UIViewRepresentable {
             WebView.webView1!.scrollView.isScrollEnabled = false
             WebView.webView1!.isOpaque = false;
             WebView.webView1!.backgroundColor = UIColor.clear;
-            WebView.webView1!.scrollView.setContentOffset(CGPointZero, animated: false)
             WebView.webView1!.scrollView.contentInsetAdjustmentBehavior = .never
             WebView.webView1!.configuration.userContentController.add(webViewController, name: "sharinpixOnEvent")
             WebView.webView1!.configuration.userContentController.addUserScript(WKUserScript(source: source, injectionTime: .atDocumentEnd, forMainFrameOnly: false))
@@ -52,7 +51,6 @@ struct WebView: UIViewRepresentable {
             WebView.webView2!.scrollView.isScrollEnabled = false
             WebView.webView2!.isOpaque = false;
             WebView.webView2!.backgroundColor = UIColor.clear;
-            WebView.webView2!.scrollView.setContentOffset(CGPointZero, animated: false)
             WebView.webView2!.scrollView.contentInsetAdjustmentBehavior = .never
             WebView.webView2!.configuration.userContentController.add(webViewController, name: "sharinpixOnEvent")
             WebView.webView2!.configuration.userContentController.addUserScript(WKUserScript(source: source, injectionTime: .atDocumentEnd, forMainFrameOnly: false))

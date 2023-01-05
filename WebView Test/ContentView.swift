@@ -32,9 +32,9 @@ struct ContentView: View {
             )
         } else {
             if (webViewSizeController.webView1FullScreen) {
-                _webview1
+                _webview1.padding([.top], $webViewSizeController.webview1TopPadding.wrappedValue)
             } else if (webViewSizeController.webView2FullScreen) {
-                _webview2
+                _webview2.padding([.top], $webViewSizeController.webview2TopPadding.wrappedValue)
             }
         }
     }

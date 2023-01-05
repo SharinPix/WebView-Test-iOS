@@ -19,6 +19,8 @@ class WebViewSizeController: ObservableObject {
     @Published var webView2FullScreen = false
     @Published var webView1Opacity = 0.0
     @Published var webView2Opacity = 0.0
+    @Published var webview1TopPadding = 0.0
+    @Published var webview2TopPadding = 0.0
     
     static func getInstance() -> WebViewSizeController {
         if ((webViewSizeController == nil)) {
@@ -97,21 +99,21 @@ class WebViewSizeController: ObservableObject {
     
     @objc func keyboardWillShowWebView1(notification: NSNotification) {
         if let keyboardHeight = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height {
-            WebView.webView1!.scrollView.contentInset = UIEdgeInsets(top: keyboardHeight, left: 0, bottom: 0, right: 0)
+            webview1TopPadding = keyboardHeight - WebView.webView1!.safeAreaInsets.top
         }
     }
     
     @objc func keyboardWillShowWebView2(notification: NSNotification) {
         if let keyboardHeight = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height {
-            WebView.webView2!.scrollView.contentInset = UIEdgeInsets(top: keyboardHeight, left: 0, bottom: 0, right: 0)
+            webview2TopPadding = keyboardHeight - WebView.webView2!.safeAreaInsets.top
         }
     }
     
     @objc func keyboardWillHideWebView1(notification: NSNotification) {
-        WebView.webView1!.scrollView.contentInset = UIEdgeInsets(top: 40.0, left: 0, bottom: 0, right: 0)
+        webview1TopPadding = 0
     }
     
     @objc func keyboardWillHideWebView2(notification: NSNotification) {
-        WebView.webView2!.scrollView.contentInset = UIEdgeInsets(top: 40.0, left: 0, bottom: 0, right: 0)
+        webview2TopPadding = 0
     }
 }
