@@ -16,8 +16,14 @@ class WebViewController: NSObject, WKScriptMessageHandler, WKNavigationDelegate 
         print(dict ?? "SharinPix null");
         guard let state = dict?["name"] as? String else { return };
         print("SharinPix: " + state);
-        if (state == "sharinpix-ready") {
-            webViewSizeController.setOpacity(name: name, opacity: 0.0)
+        if (state == "single-image-loaded") {
+            guard let payload = dict?["payload"] as? NSDictionary else { return };
+            let image = payload["image"] as? NSDictionary;
+            if (image == nil) {
+                webViewSizeController.setOpacity(name: name, opacity: 0.0)
+            } else {
+                webViewSizeController.setOpacity(name: name, opacity: 1.0)
+            }
         } else if (state == "upload-started") {
             webViewSizeController.setSize(name: name, newHeight: UIScreen.main.bounds.size.height, newWidth: UIScreen.main.bounds.size.width)
             webViewSizeController.setFullScreen(name: name, fullscreen: true)

@@ -46,7 +46,7 @@ struct WebView1: View {
     var body: some View {
         WebView(
             name: "WebView1",
-            url: URL(string: "https://sharinpix-pr-send-nativ-amzucj.herokuapp.com/?token=eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NzA5NDc4MTYsImlhdCI6MTY3MDkzMzQxNiwiaXNzIjoiYjAzMDU0NDAtNjllZS00OTM0LThhNTAtMjI1MGNmYzNiYjdmIiwicGF0aCI6Ii9zaW5nbGUtaW1hZ2UiLCJ0YWciOiJzZWNvbmRhcnkiLCJJZCI6InBsb3BwbG9wIiwiYWJpbGl0aWVzIjp7InBsb3BwbG9wIjp7IkFjY2VzcyI6eyJzZWUiOnRydWUsImltYWdlX3VwbG9hZCI6dHJ1ZSwiaW1hZ2VfYW5ub3RhdGUiOnRydWUsImltYWdlX2RlbGV0ZSI6dHJ1ZSwiaW1hZ2VfbGlzdCI6dHJ1ZX19fX0.2aWeURNn_VvNAyjXNUyGrR7fA8iG2mDlKAMSyYKDJSw")!,
+            url: URL(string: "https://app.sharinpix.com/?token=eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjgwODA5MzcsImlzcyI6ImQ2NWZiOWRjLWUwOTItNDg0OC04MWRhLWFiNjJiMzQ4MTA3NCIsInBhdGgiOiIvc2luZ2xlLWltYWdlIiwidGFnIjoicmVjZWlwdCIsIklkIjoiNTAwMjQwMDAwMDFGbUFOQUEwIiwiYWJpbGl0aWVzIjp7IjUwMDI0MDAwMDAxRm1BTkFBMCI6eyJBY2Nlc3MiOnsic2VlIjp0cnVlLCJpbWFnZV91cGxvYWQiOnRydWUsImltYWdlX2Nyb3AiOnRydWUsImltYWdlX2xpc3QiOnRydWUsImltYWdlX2Fubm90YXRlIjp0cnVlLCJpbWFnZV9kZWxldGUiOnRydWV9fX0sInVwbG9hZF9zb3VyY2UiOiJjYW1lcmEiLCJ1cGxvYWRfYWNjZXB0IjoiaW1hZ2UvKiJ9.K7TrSkeV_w_Lg-P2pM9xSGHkmBV5H0TB7ycQT_t6DtM")!,
             webViewController: WebViewController(name: "WebView1")
         )
         .frame(width: $webViewSizeController.webViewWidth1.wrappedValue, height: $webViewSizeController.webViewHeight1.wrappedValue)
