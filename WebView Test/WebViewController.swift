@@ -28,7 +28,7 @@ class WebViewController: NSObject, WKScriptMessageHandler, WKNavigationDelegate 
             webViewSizeController.setSize(name: name, newHeight: UIScreen.main.bounds.size.height, newWidth: UIScreen.main.bounds.size.width)
             webViewSizeController.setFullScreen(name: name, fullscreen: true)
             webViewSizeController.setOpacity(name: name, opacity: 1.0)
-        } else if (state == "image-annotated") {
+        } else if (state == "annotation-closed") {
             webViewSizeController.setSize(name: name, newHeight: 300, newWidth: UIScreen.main.bounds.size.width / 2)
             webViewSizeController.setFullScreen(name: name, fullscreen: false)
             webViewSizeController.setOpacity(name: name, opacity: 1.0)
