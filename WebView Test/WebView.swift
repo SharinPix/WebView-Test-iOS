@@ -16,6 +16,7 @@ struct WebView: UIViewRepresentable {
     var url: URL
     var webViewController: WebViewController
     var webViewSizeController: WebViewSizeController
+    var webViewEventController: WebViewEventController
     
     let source: String = "var meta = document.createElement('meta');" +
             "meta.name = 'viewport';" +
@@ -27,6 +28,7 @@ struct WebView: UIViewRepresentable {
         self.url = url
         self.webViewController = webViewController
         self.webViewSizeController = WebViewSizeController.getInstance()
+        self.webViewEventController = WebViewEventController.getInstance()
     }
  
     func makeUIView(context: Context) -> WKWebView {

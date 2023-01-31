@@ -32,26 +32,8 @@ class WebViewController: NSObject, WKScriptMessageHandler, WKNavigationDelegate 
             webViewSizeController.setSize(name: name, newHeight: 300, newWidth: UIScreen.main.bounds.size.width / 2)
             webViewSizeController.setFullScreen(name: name, fullscreen: false)
             webViewSizeController.setOpacity(name: name, opacity: 1.0)
-            sendStateToWebApp(state: state)
         }
 //        showAlert(message: string)
-    }
-    
-    func sendStateToWebApp(state: String) {
-        let response: [String: Any] = [
-            "name": "log-message",
-            "payload": [
-                "state": state,
-                "annotated": true
-            ],
-        ]
-        let jsonData = try? JSONSerialization.data(withJSONObject:response)
-        let jsonString = String(data: jsonData!, encoding: .utf8)
-        if (self.name.elementsEqual("WebView1")) {
-            WebView.webView1?.evaluateJavaScript("window.postMessage(" + jsonString! + ")")
-        } else if (self.name.elementsEqual("WebView2")) {
-            WebView.webView2?.evaluateJavaScript("window.postMessage(" + jsonString! + ")")
-        }
     }
     
     func showAlert(message: String) {

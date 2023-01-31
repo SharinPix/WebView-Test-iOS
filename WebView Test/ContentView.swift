@@ -10,8 +10,13 @@ import WebKit
 
 struct ContentView: View {
     @ObservedObject var webViewSizeController: WebViewSizeController = WebViewSizeController.getInstance()
+    @ObservedObject var webViewEventController: WebViewEventController = WebViewEventController.getInstance()
     @State var _webview1 = WebView1()
     @State var _webview2 = WebView2()
+    
+    @State private var presentAlert = false
+    @State private var titleAlert: String = ""
+    @State private var descriptionAlert: String = ""
     
     var body: some View {
         if (!webViewSizeController.webView1FullScreen && !webViewSizeController.webView2FullScreen) {
@@ -30,6 +35,46 @@ struct ContentView: View {
                     }
                 }
             )
+            Button("Send Caption to WebView 1") {
+                presentAlert = true
+            }
+            .alert("WebView 1 Caption", isPresented: $presentAlert, actions: {
+                TextField("Title", text: $titleAlert)
+                TextField("Description", text: $descriptionAlert)
+                Button("Send Caption", action: {
+                    webViewEventController.sendCaptionToWebApp(name: "WebView1", title: titleAlert, description: descriptionAlert)
+                    presentAlert = false
+                    titleAlert = ""
+                    descriptionAlert = ""
+                })
+                Button("Cancel", role: .cancel, action: {
+                    presentAlert = false
+                    titleAlert = ""
+                    descriptionAlert = ""
+                })
+            }, message: {
+                Text("Please enter the title and desciption to be send.")
+            })
+            Button("Send Caption to WebView 2") {
+                presentAlert = true
+            }
+            .alert("WebView 2 Caption", isPresented: $presentAlert, actions: {
+                TextField("Title", text: $titleAlert)
+                TextField("Description", text: $descriptionAlert)
+                Button("Send Caption", action: {
+                    webViewEventController.sendCaptionToWebApp(name: "WebView2", title: titleAlert, description: descriptionAlert)
+                    presentAlert = false
+                    titleAlert = ""
+                    descriptionAlert = ""
+                })
+                Button("Cancel", role: .cancel, action: {
+                    presentAlert = false
+                    titleAlert = ""
+                    descriptionAlert = ""
+                })
+            }, message: {
+                Text("Please enter the title and desciption to be send.")
+            })
         } else {
             if (webViewSizeController.webView1FullScreen) {
                 _webview1.padding([.top], $webViewSizeController.webview1TopPadding.wrappedValue)
@@ -46,7 +91,7 @@ struct WebView1: View {
     var body: some View {
         WebView(
             name: "WebView1",
-            url: URL(string: "https://sharinpix-pr-single-ima-ymsqfh.herokuapp.com/?token=eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NzQ3NTA3MTMsImlhdCI6MTY3NDczNjMxMywiaXNzIjoiMzAwYmE1MmEtZjk2Zi00MWYyLWIwZGEtMjI3N2JiMmU3NjY1IiwicGF0aCI6Ii9zaW5nbGUtaW1hZ2UiLCJ0YWciOiJzZWNvbmRhcnkiLCJJZCI6IjAwMzI0MDAwMDA0NnlMQUFBQSIsImFiaWxpdGllcyI6eyIwMDMyNDAwMDAwNDZ5TEFBQUEiOnsiQWNjZXNzIjp7InNlZSI6dHJ1ZSwiaW1hZ2VfdXBsb2FkIjp0cnVlLCJpbWFnZV9hbm5vdGF0ZSI6dHJ1ZSwiaW1hZ2VfZGVsZXRlIjp0cnVlLCJpbWFnZV9saXN0Ijp0cnVlfX19fQ.yApsVMnBfP-n_Cd1x_0fROlbeaqt1QzfIA4WzOtPZtA")!,
+            url: URL(string: "https://sharinpix-pr-image-capt-tzte8u.herokuapp.com/?token=eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NzUxODY0OTMsImlhdCI6MTY3NTE3MjA5MywidXNlcl9pZCI6ImI1Y2VhZjlkLWU5NzEtNDI1Ni05OTg3LTg5Y2MxNzNiY2VlMSIsImlzcyI6IjVhODJmNTQzLTRlMTQtNGE5YS05MTI5LWJmMzg5ZmY0MzZjMiIsInBhdGgiOiIvc2luZ2xlLWltYWdlIiwidGFnIjoic2Vjb25kYXJ5IiwiSWQiOiIwMDMyNDAwMDAwNDZ5TEFBQUEiLCJhYmlsaXRpZXMiOnsiMDAzMjQwMDAwMDQ2eUxBQUFBIjp7IkFjY2VzcyI6eyJzZWUiOnRydWUsImltYWdlX3VwbG9hZCI6dHJ1ZSwiaW1hZ2VfY3JvcCI6ZmFsc2UsImltYWdlX2RlbGV0ZSI6dHJ1ZSwiaW1hZ2VfbGlzdCI6dHJ1ZSwiaW1hZ2VfY2FwdGlvbiI6dHJ1ZX19fSwiZW1iZXIiOiJ0cnVlIn0.lIq3_Bu7zBj4Qo0Z6YObRRwb9vm8xOnaEWn8jYApgtc")!,
             webViewController: WebViewController(name: "WebView1")
         )
         .frame(width: $webViewSizeController.webViewWidth1.wrappedValue, height: $webViewSizeController.webViewHeight1.wrappedValue)
