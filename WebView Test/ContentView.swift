@@ -55,6 +55,7 @@ struct ContentView: View {
             }, message: {
                 Text("Please enter the title and desciption to be send.")
             })
+            Spacer()
             Button("Send Caption to WebView 2") {
                 presentAlert = true
             }
