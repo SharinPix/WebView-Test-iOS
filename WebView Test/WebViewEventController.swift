@@ -18,9 +18,8 @@ class WebViewEventController: ObservableObject {
     }
     
     func sendCaptionToWebApp(name: String, title: String, description: String) {
-        print("ehllo")
         let response: [String: Any] = [
-            "name": "caption-update",
+            "name": "update-caption",
             "payload": [
                 "title": title,
                 "description": description
