@@ -93,7 +93,7 @@ struct WebView1: View {
     var body: some View {
         WebView(
             name: "WebView1",
-            url: URL(string: "https://sharinpix-pr-image-capt-tzte8u.herokuapp.com/?token=eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NzU0MTg2OTgsImlhdCI6MTY3NTQwNDI5OCwidXNlcl9pZCI6ImI1Y2VhZjlkLWU5NzEtNDI1Ni05OTg3LTg5Y2MxNzNiY2VlMSIsImlzcyI6IjVhODJmNTQzLTRlMTQtNGE5YS05MTI5LWJmMzg5ZmY0MzZjMiIsInBhdGgiOiIvc2luZ2xlLWltYWdlIiwidGFnIjoic2Vjb25kYXJ5IiwiSWQiOiIwMDMyNDAwMDAwNDZ5TEFBQUEiLCJhYmlsaXRpZXMiOnsiMDAzMjQwMDAwMDQ2eUxBQUFBIjp7IkFjY2VzcyI6eyJzZWUiOnRydWUsImltYWdlX3VwbG9hZCI6dHJ1ZSwiaW1hZ2VfY3JvcCI6ZmFsc2UsImltYWdlX2RlbGV0ZSI6dHJ1ZSwiaW1hZ2VfbGlzdCI6dHJ1ZSwiaW1hZ2VfY2FwdGlvbiI6dHJ1ZX19fSwiZW1iZXIiOiJ0cnVlIn0.1UlIvX9JCVd_ufwGOaGOit-FMdhXNXyGRc8MEZy6XpY")!,
+            url: URL(string: "https://app.sharinpix.com/?token=eyJhbGciOiJIUzI1NiJ9.eyJwYXRoIjoiL3NpbmdsZS1pbWFnZSIsInRhZyI6ImZyb250IiwiSWQiOiI1MDAyNDAwMDAwMUZtQU5BQTAiLCJhYmlsaXRpZXMiOnsiNTAwMjQwMDAwMDFGbUFOQUEwIjp7IkFjY2VzcyI6eyJzZWUiOnRydWUsImltYWdlX2RlbGV0ZSI6dHJ1ZSwiaW1hZ2VfdXBsb2FkIjp0cnVlLCJpbWFnZV9jcm9wIjp0cnVlLCJpbWFnZV9saXN0Ijp0cnVlLCJpbWFnZV9hbm5vdGF0ZSI6dHJ1ZSwiaW1hZ2VfY2FwdGlvbiI6dHJ1ZX19fSwicmVwbGFjZSI6dHJ1ZSwiYW5ub3RhdGlvbl90b29scyI6WyJwYXRoIiwidGV4dCIsInJlY3QiXSwidXBsb2FkX3NvdXJjZSI6ImNhbWVyYSIsInVwbG9hZF9hY2NlcHQiOiJpbWFnZS8qIiwiaXNzIjoiZDY1ZmI5ZGMtZTA5Mi00ODQ4LTgxZGEtYWI2MmIzNDgxMDc0In0.hnuNRSzPfKc-sGEhGQWlmnVHzZdBf71jbmBlgFFg5Eg")!,
             webViewController: WebViewController(name: "WebView1")
         )
         .frame(width: $webViewSizeController.webViewWidth1.wrappedValue, height: $webViewSizeController.webViewHeight1.wrappedValue)
