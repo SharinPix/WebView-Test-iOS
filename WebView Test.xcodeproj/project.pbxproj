@@ -17,6 +17,7 @@
 		18D49ABD28F4530000996942 /* WebView_TestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D49ABC28F4530000996942 /* WebView_TestUITestsLaunchTests.swift */; };
 		18D49ACA28F454F700996942 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D49AC928F454F700996942 /* WebView.swift */; };
 		18D49ACC28F46B0B00996942 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D49ACB28F46B0B00996942 /* WebViewController.swift */; };
+		18DCCD1729895221008FD18D /* WebViewEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCCD1629895221008FD18D /* WebViewEventController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		18D49AC928F454F700996942 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		18D49ACB28F46B0B00996942 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		18D49ACD28F5599400996942 /* WebView-Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "WebView-Test-Info.plist"; sourceTree = SOURCE_ROOT; };
+		18DCCD1629895221008FD18D /* WebViewEventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewEventController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				18D49AC928F454F700996942 /* WebView.swift */,
 				18D49ACB28F46B0B00996942 /* WebViewController.swift */,
 				1878178A291D6FB500E3B940 /* WebViewSizeController.swift */,
+				18DCCD1629895221008FD18D /* WebViewEventController.swift */,
 			);
 			path = "WebView Test";
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18DCCD1729895221008FD18D /* WebViewEventController.swift in Sources */,
 				1878178B291D6FB500E3B940 /* WebViewSizeController.swift in Sources */,
 				18D49ACA28F454F700996942 /* WebView.swift in Sources */,
 				18D49AA128F452FF00996942 /* ContentView.swift in Sources */,
